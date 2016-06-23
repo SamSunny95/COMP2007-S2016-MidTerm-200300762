@@ -30,7 +30,7 @@
                         <asp:BoundField DataField="TodoNotes" HeaderText="Todo Notes" Visible="true" SortExpression="TodoNotes"/>
                         <asp:TemplateField HeaderText="Completed" Visible="true" SortExpression="Completed">
                             <ItemTemplate>
-                                <asp:CheckBox runat="server" OnCheckedChanged="CompletedCheckBox_CheckedChanged" ID="CompletedCheckBox" Checked='<%# (String.IsNullOrEmpty(Convert.ToString(Eval("Completed")))) ? false:Convert.ToBoolean(Eval("Completed").ToString())%>' Visible="true" />
+                                <asp:CheckBox runat="server" AutoPostBack="true" OnCheckedChanged="CompletedCheckBox_CheckedChanged" ID="CompletedCheckBox" Checked='<%# (String.IsNullOrEmpty(Convert.ToString(Eval("Completed")))) ? false:Convert.ToBoolean(Eval("Completed").ToString())%>' Visible="true" />
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:HyperLinkField HeaderText="Edit" Text="<i class='fa fa-pencil-square-o fa-lg'></i> Edit" NavigateUrl="~/TodoDetails.aspx.cs"
