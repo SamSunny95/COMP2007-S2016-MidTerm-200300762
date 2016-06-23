@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Todo List" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TodoList.aspx.cs" Inherits="COMP2007_S2016_MidTerm.TodoList" %>
-
+<%@ Register Src="~/User_Controls/TodoCount.ascx" TagName="TodoCount" TagPrefix="tdc" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
      
 
@@ -9,6 +9,8 @@
             <div class="col-md-offset-2 col-md-8">
                 <h1>Todo List</h1>
                 <a href="TodoDetails.aspx" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Add Todo</a>
+
+                <tdc:TodoCount runat="server" ID="todoCounter" />
 
                 <label for="PageSizeDropDownList">Records per page: </label>
                 <asp:DropDownList ID="PageSizeDropDownList" runat="server" AutoPostBack="true" 
@@ -28,7 +30,7 @@
                         <asp:BoundField DataField="TodoNotes" HeaderText="Todo Notes" Visible="true" SortExpression="TodoNotes"/>
                         <asp:TemplateField HeaderText="Completed" Visible="true" SortExpression="Completed">
                             <ItemTemplate>
-                                <asp:CheckBox runat="server" ID="Completed" Checked="true" Visible="true" />
+                                <asp:CheckBox runat="server" OnCheckedChanged="CompletedCheckBox_CheckedChanged" ID="CompletedCheckBox" Checked='<%# (String.IsNullOrEmpty(Convert.ToString(Eval("Completed")))) ? false:Convert.ToBoolean(Eval("Completed").ToString())%>' Visible="true" />
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:HyperLinkField HeaderText="Edit" Text="<i class='fa fa-pencil-square-o fa-lg'></i> Edit" NavigateUrl="~/TodoDetails.aspx.cs"

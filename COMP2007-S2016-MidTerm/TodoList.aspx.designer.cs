@@ -13,6 +13,15 @@ namespace COMP2007_S2016_MidTerm {
     public partial class TodoList {
         
         /// <summary>
+        /// todoCounter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::COMP2007_S2016_MidTerm.User_Controls.TodoCount todoCounter;
+        
+        /// <summary>
         /// PageSizeDropDownList control.
         /// </summary>
         /// <remarks>

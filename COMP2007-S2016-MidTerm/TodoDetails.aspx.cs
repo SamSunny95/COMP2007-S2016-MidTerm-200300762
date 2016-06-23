@@ -41,6 +41,10 @@ namespace COMP2007_S2016_MidTerm
                     {
                         CompletedCheckBox.Checked = true;
                     }
+                    else
+                    {
+                        CompletedCheckBox.Checked = false;
+                    }
                 }
             }
         }
@@ -76,6 +80,14 @@ namespace COMP2007_S2016_MidTerm
                 // add form data to the new todo record
                 newTodo.TodoName = TodoNameTextBox.Text;
                 newTodo.TodoNotes = TodoNotesTextBox.Text;
+                if(CompletedCheckBox.Checked == true)
+                {
+                    newTodo.Completed = true;
+                }
+                else
+                {
+                    newTodo.Completed = false;
+                }
 
 
                 // use LINQ to ADO.NET to add / insert new todo into the database

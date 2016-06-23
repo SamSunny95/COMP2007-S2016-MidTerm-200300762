@@ -145,6 +145,7 @@
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.3.js" />
     <Content Include="Scripts\jquery-2.2.3.min.js" />
+    <Content Include="User_Controls\TodoCount.ascx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -208,6 +209,13 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="User_Controls\TodoCount.ascx.cs">
+      <DependentUpon>TodoCount.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Controls\TodoCount.ascx.designer.cs">
+      <DependentUpon>TodoCount.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -17,8 +17,8 @@
                     <asp:TextBox runat="server" CssClass="form-control" ID="TodoNotesTextBox" placeholder="Budget" required="true"></asp:TextBox>
                 </div>
                 <div class="form-group">
-                    <label class="control-label" for="Completed">Completed</label>
-                    <asp:CheckBox runat="server" CssClass="form-control" ID="CompletedCheckBox" />
+                    <label class="control-label" for="Completed">Completed </label>
+                    <asp:CheckBox runat="server" ID="CompletedCheckBox" />
                 </div>
                 <div class="text-right">
                     <asp:Button Text="Cancel" ID="CancelButton" CssClass="btn btn-warning btn-lg" runat="server" 

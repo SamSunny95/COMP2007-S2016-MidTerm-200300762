@@ -39,6 +39,7 @@ namespace COMP2007_S2016_MidTerm
                 // bind the result to the GridView
                 TodoGridView.DataSource = Todos.AsQueryable().OrderBy(sortString).ToList();
                 TodoGridView.DataBind();
+                
             }
         }
 
@@ -122,6 +123,39 @@ namespace COMP2007_S2016_MidTerm
                         }
                     }
                 }
+            }
+        }
+
+        protected void CompletedCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            // store which row was clicked
+            GridViewRow row = (sender as CheckBox).Parent.Parent as GridViewRow;
+            int selectedRow = row.RowIndex;
+
+            // get the selected todoID using the Grid's DataKey Collection
+            int TodoID = Convert.ToInt32(TodoGridView.DataKeys[selectedRow].Values["TodoID"]);
+
+            // use EF to find the selected todo from DB and remove it
+            using (TodoConnection db = new TodoConnection())
+            {
+                Todo checkedTodo = (from TodoRecords in db.Todos
+                                    where TodoRecords.TodoID == TodoID
+                                    select TodoRecords).FirstOrDefault();
+
+                if(checkedTodo.Completed == true)
+                {
+                    checkedTodo.Completed = false;
+                }
+                else
+                {
+                    checkedTodo.Completed = true;
+                }
+                
+                db.SaveChanges();
+
+                // refresh the grid
+                this.GetTodoList();
+
             }
         }
     }
